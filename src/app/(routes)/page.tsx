@@ -4,9 +4,9 @@ import { Link } from "@nextui-org/link";
 // import { HonoLogo, NextJSLogo } from "@/components/icons";
 
 import { GithubIcon, HonoLogo, NextLogo } from "@/components/icons";
-
 // import { ClientHello } from "@/features/hello/components/client-hello";
-// import { ServerHello } from "@/features/hello/components/server-hello";
+import { ServerHello } from "@/features/hello/components/server-hello";
+
 // import { CreateHello } from "@/features/hello/components/update-hello-form";
 
 export default function Home() {
@@ -32,13 +32,11 @@ export default function Home() {
           Github
         </Button>
 
-        {/* <div className="flex flex-col items-center">
-          <Suspense fallback={<>Loading...</>}>
-            <ServerHello />
-            <ClientHello />
-          </Suspense>
+        <div className="flex flex-col items-center">
+          <ServerHello />
+          {/* <ClientHello /> */}
         </div>
-        <CreateHello /> */}
+        {/* <CreateHello /> */}
       </div>
       <p className="text-center text-tiny text-foreground-400">
         The API handling the form fails 50% of the time. To improve UX, we use
