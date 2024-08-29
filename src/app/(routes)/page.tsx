@@ -1,5 +1,7 @@
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
+import { Skeleton } from "@nextui-org/skeleton";
+import { Suspense } from "react";
 
 // import { HonoLogo, NextJSLogo } from "@/components/icons";
 
@@ -11,7 +13,7 @@ import { ServerHello } from "@/features/hello/components/server-hello";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center flex-1 max-w-2xl gap-6 mx-auto">
+    <div className="mx-auto flex max-w-2xl flex-1 flex-col items-center justify-center gap-6">
       <div className="flex gap-8">
         <NextLogo className="h-24 w-auto text-black duration-300 hover:drop-shadow-[0_0_2rem_#61DAFB] dark:text-white" />
         <HonoLogo className="h-24 w-auto text-black duration-300 hover:drop-shadow-[0_0_2rem_#FF5B11] dark:text-white" />
@@ -22,7 +24,7 @@ export default function Home() {
         <Button
           isExternal
           as={Link}
-          className="text-sm w-fit"
+          className="w-fit text-sm"
           href="https://github.com/AFPedreros/react-finance-app"
           size="md"
           startContent={<GithubIcon />}
@@ -34,6 +36,7 @@ export default function Home() {
 
         <div className="flex flex-col items-center">
           <ServerHello />
+
           {/* <ClientHello /> */}
         </div>
         {/* <CreateHello /> */}
