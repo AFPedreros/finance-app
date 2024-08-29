@@ -8,12 +8,8 @@ const messageSchema = z.object({
 
 export const helloRoute = new Hono().get(
   "/",
-  zValidator("query", messageSchema),
-  async (c) => {
-    const { message } = c.req.valid("query");
 
-    return c.json({
-      message: `${message} hello from Hono!`,
-    });
+  async (c) => {
+    return c.json({ message: "Hello, Vercel!" });
   },
 );
