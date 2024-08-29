@@ -19,6 +19,6 @@ export async function getHello() {
     // eslint-disable-next-line no-console
     console.error("Error fetching hello:", error);
 
-    return { message: "Error fetching data" };
+    return { message: error };
   }
 }
