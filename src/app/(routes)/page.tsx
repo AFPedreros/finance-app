@@ -35,8 +35,15 @@ export default function Home() {
         </Button>
 
         <div className="flex flex-col items-center">
-          <ServerHello />
-
+          <Suspense
+            fallback={
+              <div className="flex h-6 w-full items-center justify-center">
+                <Skeleton className="h-4 w-full min-w-36 rounded-md bg-default-300" />
+              </div>
+            }
+          >
+            <ServerHello />
+          </Suspense>
           {/* <ClientHello /> */}
         </div>
         {/* <CreateHello /> */}

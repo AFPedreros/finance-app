@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
   },
 };
 
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col min-h-screen">
+          <div className="relative flex min-h-screen flex-col">
             <Navbar />
 
             {children}
