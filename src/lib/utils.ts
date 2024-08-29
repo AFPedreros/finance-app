@@ -4,10 +4,8 @@ export function getBaseURL() {
   if (!isServer) {
     return "";
   }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`;
-  }
 
-  // Fallback for local development or other environments
-  return process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+  return process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000";
 }

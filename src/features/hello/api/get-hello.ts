@@ -5,7 +5,7 @@ export async function getHello() {
     const baseUrl = getBaseURL();
     const url = `${baseUrl}/api/hello`;
 
-    const response = await fetch(url);
+    const response = await fetch(url, { cache: "no-store" });
 
     if (!response.ok) {
       throw new Error(`Server error: ${response.status}`);
@@ -19,6 +19,6 @@ export async function getHello() {
     // eslint-disable-next-line no-console
     console.error("Error fetching hello:", error);
 
-    return { message: error };
+    return { message: "Error fetching hello" };
   }
 }
