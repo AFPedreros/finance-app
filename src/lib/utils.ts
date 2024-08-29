@@ -8,5 +8,6 @@ export function getBaseURL() {
     return `https://${process.env.VERCEL_URL}`;
   }
 
-  return "http://localhost:3000";
+  // Fallback for local development or other environments
+  return process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 }
