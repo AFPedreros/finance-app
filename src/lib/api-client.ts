@@ -1,11 +1,11 @@
-import { hc } from "hono/client";
+// import { hc } from "hono/client";
 
-import { getBaseURL } from "./utils";
+// import { getBaseURL } from "./utils";
 
-import { ApiRoutes } from "@/app/api/[[...route]]/route";
+// import { ApiRoutes } from "@/app/api/[[...route]]/route";
 
-const baseUrl = getBaseURL();
+// const baseUrl = getBaseURL();
 
-const client = hc<ApiRoutes>(`${baseUrl}/`);
+// const client = hc<ApiRoutes>(`${baseUrl}/`);
 
-export const api = client.api;
+// export const api = client.api;

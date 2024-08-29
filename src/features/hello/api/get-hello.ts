@@ -1,7 +1,5 @@
-import { api } from "@/lib/api-client";
-
-export async function getHello(message: string) {
-  const response = await api.hello.$get({ query: { message } });
+export async function getHello() {
+  const response = await fetch("http://localhost:3000/api/hello");
 
   if (!response.ok) {
     throw new Error("Server error");
