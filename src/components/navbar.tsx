@@ -15,14 +15,7 @@ import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
 import NextLink from "next/link";
 
-import {
-  DiscordIcon,
-  GithubIcon,
-  HeartFilledIcon,
-  Logo,
-  SearchIcon,
-  TwitterIcon,
-} from "@/components/icons";
+import { GithubIcon, Logo, SearchIcon, TwitterIcon } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { siteConfig } from "@/config/site";
 
@@ -42,7 +35,7 @@ export const Navbar = () => {
       labelPlacement="outside"
       placeholder="Search..."
       startContent={
-        <SearchIcon className="pointer-events-none flex-shrink-0 text-base text-default-400" />
+        <SearchIcon className="flex-shrink-0 text-base pointer-events-none text-default-400" />
       }
       type="search"
     />
@@ -51,13 +44,13 @@ export const Navbar = () => {
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="max-w-fit gap-3">
+        <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex items-center justify-start gap-1" href="/">
             <Logo />
             <p className="font-bold text-inherit">ACME</p>
           </NextLink>
         </NavbarBrand>
-        <ul className="ml-2 hidden justify-start gap-4 lg:flex">
+        <ul className="justify-start hidden gap-4 ml-2 lg:flex">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
@@ -84,7 +77,7 @@ export const Navbar = () => {
             <TwitterIcon className="text-default-500" />
           </Link>
           <Link isExternal aria-label="Discord" href={siteConfig.links.discord}>
-            <DiscordIcon className="text-default-500" />
+            {/* <DiscordIcon className="text-default-500" /> */}
           </Link>
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <GithubIcon className="text-default-500" />
@@ -96,9 +89,9 @@ export const Navbar = () => {
           <Button
             isExternal
             as={Link}
-            className="bg-default-100 text-sm font-normal text-default-600"
+            className="text-sm font-normal bg-default-100 text-default-600"
             href={siteConfig.links.sponsor}
-            startContent={<HeartFilledIcon className="text-danger" />}
+            // startContent={<HeartFilledIcon className="text-danger" />}
             variant="flat"
           >
             Sponsor
@@ -106,7 +99,7 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="basis-1 pl-4 sm:hidden" justify="end">
+      <NavbarContent className="pl-4 basis-1 sm:hidden" justify="end">
         <Link isExternal aria-label="Github" href={siteConfig.links.github}>
           <GithubIcon className="text-default-500" />
         </Link>
@@ -116,7 +109,7 @@ export const Navbar = () => {
 
       <NavbarMenu>
         {searchInput}
-        <div className="mx-4 mt-2 flex flex-col gap-2">
+        <div className="flex flex-col gap-2 mx-4 mt-2">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
