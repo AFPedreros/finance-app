@@ -6,7 +6,7 @@ import { Suspense } from "react";
 import { GithubIcon, HonoLogo, NextLogo } from "@/components/icons";
 import { ServerHello } from "@/features/hello/components/server-hello";
 
-export const experimental_ppr = true;
+// export const experimental_ppr = true;
 
 export default function Home() {
   return (

@@ -31,9 +31,9 @@
     "framer-motion": "~11.1.1",
     "hono": "^4.5.9",
     "intl-messageformat": "^10.5.0",
-    "next": "14.2.4",
+    "next": "^15.0.0-canary.134",
     "next-themes": "^0.2.1",
-    "react": "18.3.1",
+    "react": "^19.0.0-rc-7771d3a7-20240827",
     "react-dom": "18.3.1",
     "sonner": "^1.5.0",
     "zod": "^3.23.8"
