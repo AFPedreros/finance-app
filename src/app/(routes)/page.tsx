@@ -1,27 +1,31 @@
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
-import { Skeleton } from "@nextui-org/skeleton";
+
+// import { Skeleton } from "@nextui-org/skeleton";
 // import { ClientHello } from "@/features/hello/components/client-hello";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
 // import { HonoLogo, NextJSLogo } from "@/components/icons";
 
 import { GithubIcon, HonoLogo, NextLogo } from "@/components/icons";
+import { ServerHello } from "@/features/hello/components/server-hello";
 
-const ServerHello = dynamic(
-  () =>
-    import("@/features/hello/components/server-hello").then(
-      (mod) => mod.ServerHello,
-    ),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="flex h-6 w-full items-center justify-center">
-        <Skeleton className="h-4 w-full min-w-36 rounded-md bg-default-300" />
-      </div>
-    ),
-  },
-);
+// const ServerHello = dynamic(
+//   () =>
+//     import("@/features/hello/components/server-hello").then(
+//       (mod) => mod.ServerHello,
+//     ),
+//   {
+//     ssr: false,
+//     loading: () => (
+//       <div className="flex h-6 w-full items-center justify-center">
+//         <Skeleton className="h-4 w-full min-w-36 rounded-md bg-default-300" />
+//       </div>
+//     ),
+//   },
+// );
+
+export const dynamic = "force-dynamic";
 
 // import { CreateHello } from "@/features/hello/components/update-hello-form";
 

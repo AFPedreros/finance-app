@@ -6,10 +6,8 @@ const messageSchema = z.object({
   message: z.string().min(1),
 });
 
-export const helloRoute = new Hono().get(
-  "/",
+export const helloRoute = new Hono().get("/", async (c) => {
+  console.log("Hono API called");
 
-  async (c) => {
-    return c.json({ message: "Hello, Vercel!" });
-  },
-);
+  return c.json({ message: "Hello, Vercel!" });
+});
