@@ -1,12 +1,14 @@
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
+import { Skeleton } from "@nextui-org/skeleton";
+import { Suspense } from "react";
 
 import { GithubIcon, HonoLogo, NextLogo } from "@/components/icons";
-import { getHello } from "@/features/hello/api/get-hello";
+import { ServerHello } from "@/features/hello/components/server-hello";
 
-export default async function Home() {
-  const data = await getHello();
+export const experimental_ppr = true;
 
+export default function Home() {
   return (
     <div className="mx-auto flex max-w-2xl flex-1 flex-col items-center justify-center gap-6">
       <div className="flex gap-8">
@@ -30,7 +32,15 @@ export default async function Home() {
         </Button>
 
         <div className="flex flex-col items-center">
-          <code>{data?.message ?? "No hubo respuesta"}</code>
+          <Suspense
+            fallback={
+              <div className="flex h-6 w-full items-center justify-center">
+                <Skeleton className="h-4 w-full min-w-36 rounded-lg bg-default-300" />
+              </div>
+            }
+          >
+            <ServerHello />
+          </Suspense>
           {/* <ClientHello /> */}
         </div>
         {/* <CreateHello /> */}
