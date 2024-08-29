@@ -3,6 +3,7 @@ import "@/styles/index.css";
 import clsx from "clsx";
 import { Metadata, Viewport } from "next";
 import { ReactNode } from "react";
+import { Toaster } from "sonner";
 
 import { Providers } from "../providers";
 
@@ -39,11 +40,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+          <div className="relative flex flex-col min-h-screen">
             <Navbar />
-            <main className="container flex-grow px-6 pt-16 mx-auto max-w-7xl">
-              {children}
-            </main>
+
+            {children}
+
+            <Toaster richColors />
           </div>
         </Providers>
       </body>
