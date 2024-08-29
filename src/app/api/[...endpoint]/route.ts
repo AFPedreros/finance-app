@@ -2,16 +2,17 @@ import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { handle } from "hono/vercel";
 
-import { helloRoute } from "./hello";
-
 const app = new Hono();
 
 app.use("*", logger());
 
-const apiRoutes = app.basePath("/api").route("/hello", helloRoute);
+const apiRoutes = app.basePath("/api").get("/hello", (c) => {
+  return c.json({
+    message: "Hello Next.js!",
+  });
+});
 
-app.all("*", (c) => c.text("404: Not Found"));
-
+export const OPTIONS = handle(app);
 export const GET = handle(app);
 export const POST = handle(app);
 export const PUT = handle(app);

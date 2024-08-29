@@ -2,7 +2,7 @@ import { hc } from "hono/client";
 
 import { getBaseURL } from "./utils";
 
-import { ApiRoutes } from "@/app/api/[[...route]]/route";
+import { ApiRoutes } from "@/app/api/[...endpoint]/route";
 
 const baseUrl = getBaseURL();
 

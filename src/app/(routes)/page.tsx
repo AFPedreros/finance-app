@@ -1,35 +1,12 @@
 import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 
-// import { Skeleton } from "@nextui-org/skeleton";
-// import { ClientHello } from "@/features/hello/components/client-hello";
-// import dynamic from "next/dynamic";
-
-// import { HonoLogo, NextJSLogo } from "@/components/icons";
-
 import { GithubIcon, HonoLogo, NextLogo } from "@/components/icons";
-import { ServerHello } from "@/features/hello/components/server-hello";
+import { getHello } from "@/features/hello/api/get-hello";
 
-// const ServerHello = dynamic(
-//   () =>
-//     import("@/features/hello/components/server-hello").then(
-//       (mod) => mod.ServerHello,
-//     ),
-//   {
-//     ssr: false,
-//     loading: () => (
-//       <div className="flex h-6 w-full items-center justify-center">
-//         <Skeleton className="h-4 w-full min-w-36 rounded-md bg-default-300" />
-//       </div>
-//     ),
-//   },
-// );
+export default async function Home() {
+  const data = await getHello();
 
-export const dynamic = "force-dynamic";
-
-// import { CreateHello } from "@/features/hello/components/update-hello-form";
-
-export default function Home() {
   return (
     <div className="mx-auto flex max-w-2xl flex-1 flex-col items-center justify-center gap-6">
       <div className="flex gap-8">
@@ -53,8 +30,7 @@ export default function Home() {
         </Button>
 
         <div className="flex flex-col items-center">
-          <ServerHello />
-
+          <code>{data?.message ?? "No hubo respuesta"}</code>
           {/* <ClientHello /> */}
         </div>
         {/* <CreateHello /> */}
