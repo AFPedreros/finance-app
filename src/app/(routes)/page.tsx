@@ -4,7 +4,7 @@ import { Skeleton } from "@nextui-org/skeleton";
 import { Suspense } from "react";
 
 import { GithubIcon, HonoLogo, NextLogo } from "@/components/icons";
-import { ServerHello } from "@/features/hello/components/server-hello";
+import { ClientHello } from "@/features/hello/components/client-hello";
 
 // export const experimental_ppr = true;
 
@@ -32,18 +32,8 @@ export default function Home() {
         </Button>
 
         <div className="flex flex-col items-center">
-          <Suspense
-            fallback={
-              <div className="flex h-6 w-full items-center justify-center">
-                <Skeleton className="h-4 w-full min-w-36 rounded-lg bg-default-300" />
-              </div>
-            }
-          >
-            <ServerHello />
-          </Suspense>
-          {/* <ClientHello /> */}
+          <ClientHello />
         </div>
-        {/* <CreateHello /> */}
       </div>
       <p className="text-center text-tiny text-foreground-400">
         The API handling the form fails 50% of the time. To improve UX, we use

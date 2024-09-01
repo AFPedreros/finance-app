@@ -1,3 +1,7 @@
+import { queryOptions, useQuery } from "@tanstack/react-query";
+
+import { UseHelloOptions } from "../types";
+
 import { api } from "@/lib/api-client";
 
 export async function getHello() {
@@ -17,4 +21,19 @@ export async function getHello() {
 
     return { message: "Error fetching hello" };
   }
+}
+
+export const getHelloQueryOptions = () => {
+  return queryOptions({
+    queryKey: ["get-hello"],
+    queryFn: () => getHello(),
+    staleTime: 1000 * 60 * 60,
+  });
+};
+
+export function useHello({ queryConfig }: UseHelloOptions) {
+  return useQuery({
+    ...getHelloQueryOptions(),
+    ...queryConfig,
+  });
 }
